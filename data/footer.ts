@@ -13,7 +13,7 @@ export const footerGroups: FooterGroup[] = [
     title: 'Company',
     links: [
       { label: 'About', href: '/about' },
-      { label: 'Customers', href: '/customers' },
+      //{ label: 'Customers', href: '/customers' },
       /*
       { label: 'Journal', href: '/journal' },
       { label: 'Careers', href: '/about#roles' },

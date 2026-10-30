@@ -6,7 +6,7 @@ export const loader = {
     { label: 'Workshops', count: 2051 },
   ],
   status: { waiting: 'Waiting', syncing: 'Syncing', live: 'Live' },
-  caption: { loading: 'Calibrating baselines', done: 'Signal locked' },
+  caption: { loading: 'Calibrating synthesizers', done: 'Ready to play' },
   frames: [
     'drum',
     'yellow',

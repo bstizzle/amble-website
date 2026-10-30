@@ -3,28 +3,28 @@ import type { Milestone, Role, TeamMember, Value } from '@/interface';
 
 export const milestones: Milestone[] = [
   {
-    year: '2021',
-    title: 'A spreadsheet of missed moments',
-    body: 'Our founders listed every problem their last company found out about too late. The list had 214 rows.',
+    year: '2024',
+    title: 'Idea',
+    body: `so cool`,
+    image: '/images/gallery-tower.jpg',
+  },
+  {
+    year: '2025',
+    title: 'NIME 2025',
+    body: 'publication',
     image: '/images/about-city.jpg',
   },
   {
-    year: '2022',
-    title: 'The first brief',
-    body: 'Twelve design partners. One Slack message every morning, written by a model and checked by a person.',
+    year: '2026',
+    title: 'NIME 2026',
+    body: 'publication',
     image: '/images/gallery-desk.jpg',
   },
   {
-    year: '2024',
-    title: 'From reports to signals',
-    body: 'We stopped summarising dashboards and started watching the data underneath them, in real time.',
-    image: '/images/about-studio.jpg',
-  },
-  {
     year: '2026',
-    title: 'Teams on four continents',
-    body: `Freight, energy, health and finance operators now start their day with a ${site.name} brief.`,
-    image: '/images/gallery-tower.jpg',
+    title: 'Company Founded',
+    body: 'woohoo',
+    image: '/images/about-studio.jpg',
   },
 ];
 
@@ -48,12 +48,8 @@ export const values: Value[] = [
 ];
 
 export const team: TeamMember[] = [
-  { name: 'Amara Diallo', role: 'Co-founder, CEO', image: '/images/team-amara.jpg' },
-  { name: 'Jonas Weber', role: 'Co-founder, CTO', image: '/images/team-jonas.jpg' },
-  { name: 'Lin Takahashi', role: 'Head of Design', image: '/images/team-lin.jpg' },
-  { name: 'Rafael Costa', role: 'Head of Machine Learning', image: '/images/team-rafael.jpg' },
-  { name: 'Sade Adeyemi', role: 'Head of Customer Success', image: '/images/team-sade.jpg' },
-  { name: 'Viktor Lind', role: 'Chair, Board of Directors', image: '/images/team-viktor.jpg' },
+  { name: 'Casper Preisler', role: 'Founder, CEO', image: '/images/beavis.jpg' },
+  { name: 'Benjamin Stein', role: 'Co-founder, CTO', image: '/images/butthead.jpg' },
 ];
 
 export const roles: Role[] = [

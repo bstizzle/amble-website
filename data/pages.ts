@@ -115,23 +115,22 @@ export const aboutPage = {
     description: `${site.name} is built by a remote-first team in Berlin and London who think the warning should arrive before the damage.`,
   },
   hero: {
-    lines: ['We build for', 'the minute before', 'it matters.'],
+    lines: ['We build instruments', 'that make you', 'more you.'],
     accent: 2,
     intro: `${site.name} started with a list of every problem our last company found out about too late. We are building the tool we wished we had then.`,
     image: '/images/about-hero.jpg',
     imageAlt: 'A lone figure walking under a concrete overpass in black and white',
     facts: [
-      { value: 2021, from: 2001, grouping: false, label: 'Founded in Berlin' },
-      { value: 64, label: 'People on the team' },
-      { value: 1200, suffix: '+', label: `Teams on ${site.name}` },
+      { value: 2026, from: 2001, grouping: false, label: 'Founded in Copenhagen' },
+      { value: 2, label: 'People on the team' },
     ] as { value: number; from?: number; suffix?: string; grouping?: boolean; label: string }[],
   },
   timeline: {
     title: 'How we got here.',
-    body: 'Five years, one stubborn idea: the warning should arrive before the damage.',
+    body: 'We need more money.',
   },
   values: { title: 'What we hold ourselves to.' },
-  team: { title: 'The people behind the briefs.' },
+  team: { title: 'The people behind the tech.' },
   roles: {
     title: 'Join the team.',
     body: 'Remote-first, with hubs in Berlin and London. We hire people who would rather fix it early.',
