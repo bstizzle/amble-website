@@ -112,12 +112,12 @@ export const journalPage = {
 export const aboutPage = {
   meta: {
     title: 'About',
-    description: `${site.name} is built by a remote-first team in Berlin and London who think the warning should arrive before the damage.`,
+    description: `${site.name} is built by nerds.`,
   },
   hero: {
     lines: ['We build instruments', 'that make you', 'more you.'],
     accent: 2,
-    intro: `${site.name} started with a list of every problem our last company found out about too late. We are building the tool we wished we had then.`,
+    intro: `${site.name} started with the wish to build the instruments we wish we had as performers.`,
     image: '/images/about-hero.jpg',
     imageAlt: 'A lone figure walking under a concrete overpass in black and white',
     facts: [
