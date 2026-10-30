@@ -9,7 +9,7 @@ interface Pulse {
 }
 
 const BONE = '235, 233, 226';
-const SIGNAL = '255, 91, 31';
+const SIGNAL = '255, 217, 0';
 const PULSE_LIFE = 2.8;
 const PULSE_SPEED = 240;
 const REPEL = 170;

@@ -1,8 +1,8 @@
 import { site } from '@/data/site';
 
 export const hero = {
-  lines: [{ text: 'Know the moment' }, { text: 'before it', accent: 'passes.' }],
-  intro: `${site.name} reads your metrics, tickets and calls, then tells the right person what changed and why.`,
+  lines: [{ text: 'Expand your' }, { text: '', accent: 'possibilities.' }],
+  intro: `The Hybrid Drum is a real hand drum with embedded sensing and live synthesis, played using the techniques drummers already know.`,
 };
 
 export const logosSection = {
@@ -10,15 +10,12 @@ export const logosSection = {
 };
 
 export const manifesto = {
-  eyebrow: `Why ${site.name}`,
+  eyebrow: `Why Hybrid Drum`,
   parts: [
-    { text: 'Your company already knows what is about to go wrong.' },
+    { text: 'Every hit, playing position, hand pressure and movement shapes the sound in real time.' },
     { image: '/images/manifesto-face.jpg' },
-    { text: 'It is buried in a dashboard nobody opened, a ticket marked low,' },
+    { text: 'It is an instrument, not a controller.' },
     { image: '/images/manifesto-city.jpg' },
-    { text: `a call that ended early. ${site.name} listens to all of it` },
-    { image: '/images/manifesto-hand.jpg' },
-    { text: 'and tells you while there is still time to act.' },
   ] as ({ text: string } | { image: string })[],
   hint: 'Drag across the line, or tap it',
 };

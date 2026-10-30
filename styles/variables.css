@@ -7,8 +7,8 @@
   --color-bone: #ebe9e2;
   --color-mute: #a3a199;
   --color-dim: #75736c;
-  --color-signal: #ff5b1f;
-  --color-signal-soft: rgb(255 91 31 / 0.14);
+  --color-signal: #ffd900;
+  --color-signal-soft: rgb(255 217 0 / 0.14);
 
   --font-display: var(--font-display-face), sans-serif;
   --font-body: var(--font-body-face), sans-serif;

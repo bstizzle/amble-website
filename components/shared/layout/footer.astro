@@ -3,11 +3,11 @@ import Icon from '@/components/shared/icons/icon.astro';
 import PulseUnderline from '@/components/shared/ui/pulse-underline.astro';
 import SignalLine from '@/components/shared/ui/signal-line.astro';
 import TextRoll from '@/components/shared/ui/text-roll.astro';
-import { footerCopy, footerGroups } from '@/data/footer';
+import { contactForm, footerCopy, footerGroups } from '@/data/footer';
 import { site } from '@/data/site';
 import { chars } from '@/utils/text';
 
-const { newsletter } = footerCopy;
+const { contact } = footerCopy;
 const word = chars(site.name.toUpperCase());
 const wordSize = `clamp(3rem, ${Math.min(23, 118 / word.length).toFixed(2)}vw, 22rem)`;
 ---
@@ -16,43 +16,73 @@ const wordSize = `clamp(3rem, ${Math.min(23, 118 / word.length).toFixed(2)}vw, 2
   <div class="shell pt-14 md:pt-16" data-footer-inner>
     <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
       <div class="md:col-span-6 lg:col-span-5">
-        <h2 class="max-w-[14ch] font-display text-subtitle font-bold text-bone">{newsletter.title}</h2>
+        <h2 class="max-w-[14ch] font-display text-subtitle font-bold text-bone">{contact.title}</h2>
         <form
           class="mt-8 max-w-md"
-          data-newsletter
-          data-msg-loading={newsletter.loading}
-          data-msg-success={newsletter.success}
-          data-msg-error={newsletter.error}
+          action={contactForm.endpoint}
+          method="post"
+          data-contact
+          data-msg-note={contact.note}
+          data-msg-loading={contact.loading}
+          data-msg-success={contact.success}
+          data-msg-error-email={contact.errorEmail}
+          data-msg-error-message={contact.errorMessage}
+          data-msg-error-send={contact.errorSend}
           novalidate>
-          <label for="newsletter-email" class="font-mono text-label text-mute uppercase">
-            {newsletter.label}
+          <input type="hidden" name="access_key" value={contactForm.accessKey} />
+          <input type="hidden" name="subject" value={contactForm.subject} />
+          <input type="hidden" name="from_name" value={site.name} />
+          <label for="contact-email" class="font-mono text-label text-mute uppercase">
+            {contact.emailLabel}
           </label>
           <div
-            class="mt-3 flex items-center gap-2 rounded-full border border-line-strong bg-ink p-1.5 pl-5 transition-colors duration-300 focus-within:border-bone data-[state=error]:border-signal"
-            data-newsletter-field>
+            class="mt-3 flex items-center rounded-full border border-line-strong bg-ink px-5 py-3 transition-colors duration-300 focus-within:border-bone data-[state=error]:border-signal"
+            data-contact-field="email">
             <input
-              id="newsletter-email"
+              id="contact-email"
               name="email"
               type="email"
               autocomplete="email"
               required
-              placeholder={newsletter.placeholder}
+              maxlength="254"
+              placeholder={contact.emailPlaceholder}
               class="min-w-0 flex-1 bg-transparent text-bone placeholder:text-dim focus:outline-none"
-              aria-describedby="newsletter-status"
+              aria-describedby="contact-status"
             />
+          </div>
+
+          <label for="contact-message" class="mt-6 block font-mono text-label text-mute uppercase">
+            {contact.messageLabel}
+          </label>
+          <div
+            class="relative mt-3 rounded-3xl border border-line-strong bg-ink p-1.5 pl-5 transition-colors duration-300 focus-within:border-bone data-[state=error]:border-signal"
+            data-contact-field="message">
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="4"
+              required
+              maxlength="5000"
+              placeholder={contact.messagePlaceholder}
+              class="block w-full resize-none bg-transparent pt-2 pr-14 pb-2 text-bone placeholder:text-dim focus:outline-none"
+              aria-describedby="contact-status"></textarea>
             <button
               type="submit"
-              class="group relative grid size-11 shrink-0 place-items-center overflow-hidden rounded-full bg-bone text-ink transition-[scale] duration-300 active:scale-95"
-              aria-label="Subscribe"
-              data-newsletter-submit>
+              class="group absolute right-1.5 bottom-1.5 grid size-11 shrink-0 place-items-center overflow-hidden rounded-full bg-bone text-ink transition-[scale,opacity] duration-300 active:scale-95 disabled:opacity-60"
+              aria-label={contact.submit}
+              data-contact-submit>
               <span class="btn-icon" data-dir="right">
                 <Icon name="arrow-right" />
                 <Icon name="arrow-right" />
               </span>
             </button>
           </div>
-          <p id="newsletter-status" class="mt-3 min-h-6 text-sm text-mute" role="status" data-newsletter-status>
-            {newsletter.note}
+
+          <!-- Web3Forms honeypot: hidden from people, bots tend to tick it -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <p id="contact-status" class="mt-3 min-h-6 text-sm text-mute" role="status" data-contact-status>
+            {contact.note}
           </p>
         </form>
       </div>
@@ -142,3 +172,97 @@ const wordSize = `clamp(3rem, ${Math.min(23, 118 / word.length).toFixed(2)}vw, 2
     </p>
   </div>
 </footer>
+
+<script>
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function initContactForm() {
+    const form = document.querySelector<HTMLFormElement>('[data-contact]');
+    if (!form || form.dataset.bound === 'true') return;
+    form.dataset.bound = 'true';
+
+    const msg = form.dataset;
+    const status = form.querySelector<HTMLElement>('[data-contact-status]')!;
+    const submit = form.querySelector<HTMLButtonElement>('[data-contact-submit]')!;
+    const emailField = form.querySelector<HTMLElement>('[data-contact-field="email"]')!;
+    const messageField = form.querySelector<HTMLElement>('[data-contact-field="message"]')!;
+    const emailInput = form.querySelector<HTMLInputElement>('input[name="email"]')!;
+    const messageInput = form.querySelector<HTMLTextAreaElement>('textarea[name="message"]')!;
+
+    const setStatus = (text = '', isError = false) => {
+      status.textContent = text;
+      status.classList.toggle('text-signal', isError);
+      status.classList.toggle('text-mute', !isError);
+    };
+
+    const clearErrors = () => {
+      delete emailField.dataset.state;
+      delete messageField.dataset.state;
+      emailInput.removeAttribute('aria-invalid');
+      messageInput.removeAttribute('aria-invalid');
+    };
+
+    emailInput.addEventListener('input', () => {
+      delete emailField.dataset.state;
+      emailInput.removeAttribute('aria-invalid');
+    });
+    messageInput.addEventListener('input', () => {
+      delete messageField.dataset.state;
+      messageInput.removeAttribute('aria-invalid');
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearErrors();
+
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+
+      if (!EMAIL_RE.test(email)) {
+        emailField.dataset.state = 'error';
+        emailInput.setAttribute('aria-invalid', 'true');
+        emailInput.focus();
+        setStatus(msg.msgErrorEmail, true);
+        return;
+      }
+
+      if (!message) {
+        messageField.dataset.state = 'error';
+        messageInput.setAttribute('aria-invalid', 'true');
+        messageInput.focus();
+        setStatus(msg.msgErrorMessage, true);
+        return;
+      }
+
+      submit.disabled = true;
+      form.setAttribute('aria-busy', 'true');
+      setStatus(msg.msgLoading);
+
+      try {
+        // Sends every named field: access_key, subject, from_name, email, message, botcheck.
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const result = await res.json().catch(() => ({}));
+        if (!res.ok || !result.success) {
+          throw new Error(result.message || `Request failed: ${res.status}`);
+        }
+
+        form.reset();
+        setStatus(msg.msgSuccess);
+      } catch (err) {
+        console.error(err);
+        setStatus(msg.msgErrorSend, true);
+      } finally {
+        submit.disabled = false;
+        form.removeAttribute('aria-busy');
+      }
+    });
+  }
+
+  initContactForm();
+  // Re-run after client-side navigation if the site uses Astro view transitions.
+  document.addEventListener('astro:page-load', initContactForm);
+</script>
