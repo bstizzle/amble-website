@@ -23,3 +23,12 @@ export const integrations: Integration[] = [
   { label: 'Email', icon: 'email' },
   { label: 'Cloud storage', icon: 'cloud' },
 ];
+
+export const connectIntegrations: Integration[] = [
+  
+  { label: 'handtap', icon: 'handTap' },
+  { label: 'arrowClockwise', icon: 'arrowClockwise' },
+  { label: 'waveform', icon: 'waveform' },
+  { label: 'speakerHi', icon: 'speakerHi' },
+  { label: 'ear', icon: 'ear' },
+];

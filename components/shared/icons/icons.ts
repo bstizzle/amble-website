@@ -22,6 +22,13 @@ import shieldCheck from '@phosphor-icons/core/regular/shield-check.svg?raw';
 import sparkle from '@phosphor-icons/core/regular/sparkle.svg?raw';
 import x from '@phosphor-icons/core/regular/x.svg?raw';
 import xLogo from '@phosphor-icons/core/regular/x-logo.svg?raw';
+import handTap from '@phosphor-icons/core/regular/hand-tap.svg?raw';
+import arrowClockwise from '@phosphor-icons/core/regular/arrow-clockwise.svg?raw';
+import waveform from '@phosphor-icons/core/regular/waveform.svg?raw';
+import speakerHi from '@phosphor-icons/core/regular/speaker-high.svg?raw';
+import ear from '@phosphor-icons/core/regular/ear.svg?raw';
+
+
 
 export const icons = {
   'arrow-down': arrowDown,
@@ -48,6 +55,11 @@ export const icons = {
   sparkle,
   x,
   'x-logo': xLogo,
+  handTap,
+  arrowClockwise,
+  waveform,
+  speakerHi,
+  ear,
 };
 
 export type IconName = keyof typeof icons;
