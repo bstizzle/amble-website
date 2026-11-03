@@ -3,27 +3,27 @@ import type { Milestone, Role, TeamMember, Value } from '@/interface';
 
 export const milestones: Milestone[] = [
   {
-    year: '2024',
+    year: '\'24',
     title: 'Idea',
-    body: `so cool`,
-    image: '/images/gallery-tower.jpg',
+    body: `Casper has the initial idea and begins R&D.`,
+    image: '/images/casper-idea.jpg',
   },
   {
-    year: '2025',
+    year: '\'25',
     title: 'NIME 2025',
-    body: 'publication',
-    image: '/images/about-city.jpg',
+    body: 'Prototype is succesfully evalutated and published at the New Interfaces for Music Expression conference.',
+    image: '/images/casper-2025.jpg',
   },
   {
-    year: '2026',
+    year: '\'26',
     title: 'NIME 2026',
-    body: 'publication',
-    image: '/images/gallery-desk.jpg',
+    body: 'Product is refined, further evaluated, and the new research published.',
+    image: '/images/nime-logo.jpg',
   },
   {
-    year: '2026',
+    year: 'Nov \'26',
     title: 'Company Founded',
-    body: 'woohoo',
+    body: 'Ben joins as co-founder and head of software, and the company is founded.',
     image: '/images/about-studio.jpg',
   },
 ];
@@ -48,8 +48,8 @@ export const values: Value[] = [
 ];
 
 export const team: TeamMember[] = [
-  { name: 'Casper Preisler', role: 'Founder, CEO', image: '/images/beavis.jpg' },
-  { name: 'Benjamin Stein', role: 'Co-founder, CTO', image: '/images/butthead.jpg' },
+  { name: 'Casper Preisler', role: 'Founder, CEO', image: '/images/casper-profile.jpg' },
+  { name: 'Benjamin Stein', role: 'Co-founder, CTO', image: '/images/ben-profile.jpg' },
 ];
 
 export const roles: Role[] = [

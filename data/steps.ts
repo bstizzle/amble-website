@@ -3,31 +3,26 @@ import { site } from '@/data/site';
 
 export const steps: Step[] = [
   {
-    verb: 'Connect',
-    tag: 'About 20 minutes',
+    verb: 'Play',
+    tag: '',
     visual: 'connect',
-    title: `Point ${site.name} at the tools you already use.`,
-    body: 'Read-only connectors for your warehouse, CRM, billing, support and call recordings. Most teams are live before lunch.',
+    title: `All interactions matter, every action influences the sound processing.`,
+    body: 'From strike for and location, to tilting the drum, to grip pressure on the frame and skin, and beyond.',
     points: [
-      'One-click OAuth for most SaaS tools',
-      'Warehouse sync for everything else',
-      'Nothing to tag or instrument',
     ],
-    image: '/images/step-connect.jpg',
+    image: '/images/yellow.jpg',
   },
   {
-    verb: 'Watch',
-    tag: 'Your first week',
+    verb: 'Process',
+    tag: '',
     visual: 'watch',
-    title: 'It learns what normal looks like for you.',
-    body: `${site.name} builds a baseline for every metric, account and queue, then watches for the changes that actually break the pattern.`,
+    title: 'Expressive synthesis on a bespoke embedded controller.',
+    body: `Programmable audio FX and physical modeling synthesis engines produce nuanced and highly interactive audio output.`,
     points: [
-      'Seasonality and launches accounted for',
-      'Thresholds you never have to set',
-      'Quiet on the days nothing happens',
     ],
-    image: '/images/step-watch.jpg',
+    image: '/images/circuitboard.jpg',
   },
+  /*
   {
     verb: 'Brief',
     tag: 'Every morning',
@@ -41,6 +36,7 @@ export const steps: Step[] = [
     ],
     image: '/images/step-brief.jpg',
   },
+  */
 ];
 
 export const briefPreview = {

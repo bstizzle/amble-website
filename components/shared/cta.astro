@@ -1,19 +1,22 @@
 ---
-import Icon from '@/components/shared/icons/icon.astro';
 import Media from '@/components/shared/ui/media.astro';
-import TextRoll from '@/components/shared/ui/text-roll.astro';
 import { closingCta } from '@/data/home';
-import { site } from '@/data/site';
+import { YouTube } from 'astro-embed';
 
 interface Props {
   title?: string;
   body?: string;
+  videoId?: string; // Optional prop to override the default video
 }
 
-const { title = closingCta.title, body = closingCta.body } = Astro.props;
+const { 
+  title = closingCta.title, 
+  body = closingCta.body,
+  videoId = "O2qB-1FYt4s" // Replace with your actual default YouTube video ID or URL
+} = Astro.props;
 ---
 
-<section class="relative isolate overflow-hidden" data-cta aria-labelledby="cta-title">
+<section id="cta" class="relative isolate overflow-hidden" data-cta aria-labelledby="cta-title">
   <Media
     src="/images/cta-spark.jpg"
     alt=""
@@ -34,20 +37,12 @@ const { title = closingCta.title, body = closingCta.body } = Astro.props;
         {body}
       </p>
     </div>
-    <div class="shrink-0 md:pr-[4vw]" data-reveal>
-      <span class="inline-flex" data-magnetic="0.45">
-        <a
-          href={site.cta.primary.href}
-          class="btn group size-40 flex-col gap-3 rounded-full bg-signal px-0 text-lg text-ink md:size-52 md:text-xl"
-          data-btn>
-          <span class="btn-fill bg-bone" aria-hidden="true"></span>
-          <span class="btn-icon size-6">
-            <Icon name="arrow-up-right" class="size-6" />
-            <Icon name="arrow-up-right" class="size-6" />
-          </span>
-          <TextRoll text={site.cta.primary.label} />
-        </a>
-      </span>
+    
+    {/* Right column container holding the video */}
+    <div class="w-full max-w-3xl shrink-0 md:w-[55%] md:pr-[4vw]" data-reveal>
+      <div class="overflow-hidden rounded-2xl border border-bone/10 shadow-2xl">
+        <YouTube id={videoId} />
+      </div>
     </div>
   </div>
 </section>

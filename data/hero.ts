@@ -6,7 +6,7 @@ export const moments: Moment[] = [
     label: '',
     value: 1,
     suffix: '. Your Instrument',
-    image: '/images/bongo.jpg',
+    image: '/images/amble-1.jpg',
     alt: 'A long, brightly lit warehouse aisle at night',
   },
   {
@@ -14,7 +14,7 @@ export const moments: Moment[] = [
     label: '',
     value: 2,
     suffix: '. Your Technique',
-    image: '/images/djembe.jpg',
+    image: '/images/amble-2.jpg',
     alt: 'A field engineer walking past solar panels at sunset',
   },
   {
@@ -22,7 +22,7 @@ export const moments: Moment[] = [
     label: '',
     value: 3,
     suffix: '. Your Sound',
-    image: '/images/tonka.jpg',
+    image: '/images/amble-3.jpg',
     alt: 'Two lab technicians in white coats crossing a red-lit room',
   },
 ];

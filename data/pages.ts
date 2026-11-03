@@ -126,8 +126,8 @@ export const aboutPage = {
     ] as { value: number; from?: number; suffix?: string; grouping?: boolean; label: string }[],
   },
   timeline: {
-    title: 'How we got here.',
-    body: 'We need more money.',
+    title: 'How we got here:',
+    body: '',
   },
   values: { title: 'What we hold ourselves to.' },
   team: { title: 'The people behind the tech.' },

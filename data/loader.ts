@@ -8,11 +8,11 @@ export const loader = {
   status: { waiting: 'Waiting', syncing: 'Syncing', live: 'Live' },
   caption: { loading: 'Calibrating synthesizers', done: 'Ready to play' },
   frames: [
-    'drum',
-    'yellow',
-    'kid',
-    'djembe',
-    'bongo',
+    'amble-1',
+    'amble-2',
+    'amble-3',
+    'drumtop',
+    'knobs',
     'drum',
   ].map((name) => `/images/${name}.jpg`),
 };

@@ -13,9 +13,8 @@ export const manifesto = {
   eyebrow: `Why Hybrid Drum`,
   parts: [
     { text: 'Every hit, playing position, hand pressure and movement shapes the sound in real time.' },
-    { image: '/images/manifesto-face.jpg' },
     { text: 'It is an instrument, not a controller.' },
-    { image: '/images/manifesto-city.jpg' },
+    //{ image: '/images/manifesto-city.jpg' },
   ] as ({ text: string } | { image: string })[],
   hint: 'Drag across the line, or tap it',
 };
@@ -97,7 +96,7 @@ export const capabilities = {
 };
 
 export const howItWorks = {
-  title: 'Up and running in an afternoon.',
+  title: 'The tech.',
   watchHint: 'Drag the line',
 };
 
@@ -112,6 +111,6 @@ export const proofSection = {
 };
 
 export const closingCta = {
-  title: 'Catch the next one before it lands.',
-  body: 'Connect your first source in twenty minutes. Free for small teams, no card needed.',
+  title: 'View it live.',
+  body: 'Real percussionist, real percussion.',
 };
