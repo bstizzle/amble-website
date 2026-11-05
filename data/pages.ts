@@ -34,14 +34,14 @@ export const storyPage = {
 
 export const pricingPage = {
   meta: {
-    title: 'Pricing',
+    title: 'Purchase',
     description: `Start free with five sources. Upgrade when ${site.name} is catching problems worth more than it costs.`,
   },
   hero: {
-    lines: ['Start free.', 'Pay when it pays off.'],
+    lines: ['Stay tuned  for info about our', 'first release.'],
     accent: 1,
     intro:
-      'Every plan includes anomaly detection and weekly briefs. Upgrade for real-time alerts, deeper history and admin controls.',
+      '',
   },
   plans: {
     monthly: 'Monthly',

@@ -11,7 +11,7 @@ export const site: SiteConfig = {
   careersEmail: 'careers@email.com',
   accent: '#ffb800',
   cta: {
-    primary: { label: 'Buy a drum', href: 'https://www.youtube.com/watch?v=DLzxrzFCyOs' },
+    primary: { label: 'Buy a drum', href: '/purchase' },
     secondary: { label: 'View a demo', href: '/#cta' },
   },
   socials: [
